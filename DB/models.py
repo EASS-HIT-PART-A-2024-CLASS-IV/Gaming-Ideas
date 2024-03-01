@@ -1,13 +1,16 @@
-from sqlalchemy import Column, Integer, String, Numeric
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
-class Game(Base):
-    __tablename__ = 'games'
+class GamePrice(Base):
+    __tablename__ = "game_prices"
 
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, index=True)
+    game = Column(String, index=True)
     platform = Column(String, index=True)
     edition = Column(String, index=True)
-    price = Column(Numeric(10, 2))
+    price = Column(Integer)
+
+    def to_dict(self):
+        return {"game": self.game, "platform": self.platform, "edition": self.edition, "price": self.price}
