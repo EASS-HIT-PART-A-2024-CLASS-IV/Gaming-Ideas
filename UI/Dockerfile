@@ -1,8 +1,8 @@
 FROM python:3.9-slim
 
-WORKDIR /shiralu
+WORKDIR /my_UI
 
-COPY . /app
+COPY . /my_UI
 
 RUN pip install --no-cache-dir streamlit psycopg2 pandas
 
