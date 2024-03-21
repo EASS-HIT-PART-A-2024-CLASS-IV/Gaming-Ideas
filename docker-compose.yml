@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./store
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+
+  frontend:
+    build: ./UI
+    ports:
+      - "8501:8501"
+    depends_on:
+      - backend
+
+  database:
+    build: ./db
+    ports:
+      - "27017:27017"
+
+
+
+
+
