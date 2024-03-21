@@ -1,9 +1,6 @@
 import streamlit as st
 import requests
 
-def fetch_game_price(game, platform, edition):
-    response = requests.post("http://backend:8000/get_game_price", json={"game": game, "platform": platform, "edition": edition})
-    return response.json()
 
 def main():
     st.set_page_config(page_title="Gaming Store UI", layout="wide")
