@@ -8,4 +8,4 @@ RUN pip install --no-cache-dir streamlit pandas
 
 EXPOSE 8501
 
-CMD ["streamlit", "run", "main.py"]
+CMD ["streamlit", "run", "ST.py"]
