@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
-
-
+ 
+ 
 def main():
     st.set_page_config(page_title="Gaming Store UI", layout="wide")
     st.title("Welcome to Our Gaming Store")
@@ -33,5 +33,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-    
+ 
