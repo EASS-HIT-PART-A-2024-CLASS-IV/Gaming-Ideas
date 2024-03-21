@@ -1,26 +1,39 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, Session
-from contextlib import contextmanager
-from models import Base, GamePrice
+import pymongo
 
-SQLALCHEMY_DATABASE_URL = "postgresql://user:password@localhost/my_database"
+# Connect to MongoDB
+def connect_to_mongodb(uri):
+    client = pymongo.MongoClient(uri)
+    return client
 
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+# Insert data into MongoDB
+def insert_data(db, collection, data):
+    db[collection].insert_one(data)
 
-@contextmanager
-def session_scope():
-    session = SessionLocal()
-    try:
-        yield session
-        session.commit()
-    except:
-        session.rollback()
-        raise
-    finally:
-        session.close()
+# Delete data from MongoDB
+def delete_data(db, collection, query):
+    db[collection].delete_many(query)
 
-class DB:
-    def get_game_price(self, session: Session, game: str, platform: str, edition: str) -> GamePrice:
-        return session.query(GamePrice).filter_by(game=game, platform=platform, edition=edition).first()
+if __name__ == "__main__":
+    mongodb_uri = "mongodb://localhost:27017/"
+
+    client = connect_to_mongodb(mongodb_uri)
+
+
+    db = client["gaming_store"]
+    collection = db["games"]
+
+
+    game_data = {
+        "name": "FIFA 24",
+        "platform": "PS4",
+        "edition": "Standard",
+        "price": 59.99
+    }
+
+    # Insert data into MongoDB
+    insert_data(db, collection, game_data)
+
+    # Delete data from MongoDB (sample query)
+    delete_query = {"name": "FIFA 24"}
+    delete_data(db, collection, delete_query)
 
