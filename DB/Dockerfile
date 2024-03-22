@@ -1,14 +1,13 @@
 FROM python:3.9-slim
 
-WORKDIR /DB
+WORKDIR /db
 
-COPY . /DB
+COPY . /db
+COPY versions.txt .
 
-RUN pip install pymongo
+RUN pip install -r versions.txt
 
 CMD ["python", "DB.py"]
-
-
 
 
 
