@@ -1,31 +1,40 @@
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-from enum import Enum
-from typing import List, Optional
+from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
-from DB import models, DB
+from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+DATABASE_URL = "postgresql://postgres:root@postgresdb:5432/postgres"
+engine = create_engine(DATABASE_URL)
+
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+Base = declarative_base()
+
+class VideoGame(Base):
+    __tablename__ = "videogames"
+
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String)
+    platform = Column(String)
+    model = Column(String)
+    price = Column(Integer)
 
 app = FastAPI()
-db = DB()
 
-class Game(str, Enum):
-    fifa = "FIFA 24"
-    cod = "Call of Duty: Warzone"
-    LOL = "LOL"
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
-class RequestBody(BaseModel):
-    game: Game
-    platform: str
-    edition: str
-@app.get("/")
-def read_root():
-    return {"message": "Welcome to the Gaming Store"}
-
-@app.post("/get_game_price")
-def get_game_price(request_data: RequestBody):
-    with db.session_scope() as session:
-        game = db.get_game_price(session, request_data.game, request_data.platform, request_data.edition)
-        if not game:
-            raise HTTPException(status_code=404, detail="Game not found")
-        return game.to_dict()
+@app.post("/create_game/")
+def create_game(db: Session = Depends(get_db)):
+    # Perform the operation to write to the database
+    new_game = VideoGame(title="Sample Title", platform="Sample Platform", model="Sample Model", price=0)
+    db.add(new_game)
+    db.commit()
+    db.refresh(new_game)
+    return {"message": "New game created successfully"}
 
