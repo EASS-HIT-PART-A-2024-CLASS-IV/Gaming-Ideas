@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 def fetch_game_data():
-    url = "http://localhost:8000/game/"
+    url = "http://localhost:8501/game/"
     response = requests.get(url)
 
     if response.status_code == 200:
