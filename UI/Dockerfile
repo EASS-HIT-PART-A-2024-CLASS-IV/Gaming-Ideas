@@ -1,11 +1,12 @@
 FROM python:3.9-slim
 
-WORKDIR /my_UI
+WORKDIR /UI
 
-COPY . /my_UI
+COPY . /UI
 
-RUN pip install --no-cache-dir streamlit pandas
+# Install required dependencies
+RUN pip install -r versions.txt
 
-EXPOSE 8501
+
 
 CMD ["streamlit", "run", "ST.py"]
