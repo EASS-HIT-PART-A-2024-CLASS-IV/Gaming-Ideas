@@ -1,39 +1,19 @@
-import pymongo
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
 
-# Connect to MongoDB
-def connect_to_mongodb(uri):
-    client = pymongo.MongoClient(uri)
-    return client
+# Define the connection URL for PostgreSQL
+DATABASE_URL = "postgresql://postgres:root@postgresdb:5432/postgres"
 
-# Insert data into MongoDB
-def insert_data(db, collection, data):
-    db[collection].insert_one(data)
+# Create the SQLAlchemy engine
+engine = create_engine(DATABASE_URL)
 
-# Delete data from MongoDB
-def delete_data(db, collection, query):
-    db[collection].delete_many(query)
+# Create a sessionmaker to create sessions with the database
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-if __name__ == "__main__":
-    mongodb_uri = "mongodb://localhost:27017/"
+# Create a base class for declarative class definitions
+Base = declarative_base()
 
-    client = connect_to_mongodb(mongodb_uri)
-
-
-    db = client["gaming_store"]
-    collection = db["games"]
-
-
-    game_data = {
-        "name": "FIFA 24",
-        "platform": "PS4",
-        "edition": "Standard",
-        "price": 59.99
-    }
-
-    # Insert data into MongoDB
-    insert_data(db, collection, game_data)
-
-    # Delete data from MongoDB (sample query)
-    delete_query = {"name": "FIFA 24"}
-    delete_data(db, collection, delete_query)
-
+# Function to create all tables in the database if they don't exist
+def create_tables():
+    Base.metadata.create_all(bind=engine)

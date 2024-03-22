@@ -1,13 +1,16 @@
-FROM mongo:latest
-WORKDIR /database
+FROM python:3.9-slim
 
-COPY . /database
+WORKDIR /DB
+
+COPY . /DB
+
+RUN pip install pymongo
+
+CMD ["python", "DB.py"]
 
 
-# Expose the default MongoDB port
-EXPOSE 27017
 
-# Start MongoDB when the container starts
-CMD ["mongod"]
+
+
 
 
