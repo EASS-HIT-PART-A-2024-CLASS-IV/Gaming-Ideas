@@ -1,26 +1,32 @@
 version: '3.8'
 
+networks:
+  eass_project_network:
+
 services:
+  postgresdb:
+    image: db:latest
+    build: /DB/.
+    ports:
+      - "5432:5432"
+    networks:
+      - eass_project_network
+
   backend:
-    build: ./store
+    build: /store/.
     ports:
       - "8000:8000"
-    depends_on:
-      - database
+    networks:
+      - eass_project_network
 
   frontend:
-    build: ./UI
+    build: /store/.
     ports:
       - "8501:8501"
     depends_on:
       - backend
-
-  database:
-    build: ./db
-    ports:
-      - "27017:27017"
-
-
+    networks:
+      - eass_project_network
 
 
 
