@@ -4,6 +4,7 @@ WORKDIR /UI
 
 COPY . /UI
 
+COPY . /store
 
 # Install required dependencies
 RUN pip install -r versions.txt
