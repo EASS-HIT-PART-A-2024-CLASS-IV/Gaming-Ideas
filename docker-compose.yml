@@ -3,7 +3,7 @@ version: '3.8'
 services:
   postgresdb:
     build:
-      context: ./DB
+      context: ./store/DB
       dockerfile: Dockerfile
     ports:
       - "5432:5432"
@@ -19,12 +19,14 @@ services:
 
   frontend:
     build:
-      context: ./UI
+      context: ./store/UI
       dockerfile: Dockerfile
     ports:
       - "8501:8501"
     depends_on:
       - backend
+
+
 
 
 

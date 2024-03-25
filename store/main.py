@@ -12,3 +12,4 @@ def create_game(name: str):
     db.commit()
     db.refresh(db_game)
     return db_game
+
