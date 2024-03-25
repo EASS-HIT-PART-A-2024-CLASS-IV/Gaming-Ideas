@@ -1,6 +1,6 @@
 FROM python:3.10-slim AS builder
 
-WORKDIR /db
+WORKDIR /shira
 
 COPY versions.txt .
 RUN pip install -r versions.txt
@@ -13,9 +13,10 @@ ENV POSTGRES_USER=postgres
 ENV POSTGRES_PASSWORD=root
 ENV POSTGRES_DB=postgres
 
-COPY --from=builder /db /db
+COPY --from=builder /shira /shira
 
 EXPOSE 5432
+
 
 
 

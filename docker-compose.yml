@@ -1,32 +1,31 @@
 version: '3.8'
 
-networks:
-  eass_project_network:
-
 services:
   postgresdb:
-    image: db:latest
-    build: /DB/.
+    build:
+      context: ./DB
+      dockerfile: Dockerfile
     ports:
       - "5432:5432"
-    networks:
-      - eass_project_network
 
   backend:
-    build: /store/.
+    build:
+      context: ./store
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
-    networks:
-      - eass_project_network
+    depends_on:
+      - postgresdb
 
   frontend:
-    build: /store/.
+    build:
+      context: ./UI
+      dockerfile: Dockerfile
     ports:
       - "8501:8501"
     depends_on:
       - backend
-    networks:
-      - eass_project_network
+
 
 
 
