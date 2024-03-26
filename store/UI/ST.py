@@ -3,7 +3,7 @@ import requests
 
 
 def main():
-    st.title("Welcome to my Video Gaming store 🎮")
+    st.title("HELLO ,You are welcome to flood us with an idea for a new/old game 🎮")
     st.write("Write the newest game you would like to buy:")
     new_game = st.text_input("New Game")
     platform = st.selectbox("Select the platform:", ("PC", "Mobile", "PlayStation"))
