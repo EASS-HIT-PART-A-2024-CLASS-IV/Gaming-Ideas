@@ -1,4 +1,4 @@
-🎮 Welcome to Shira's Project - Ideas to Games! 🕹️
+# 🎮 Welcome to Shira's Project - Ideas to Games! 🕹️
 Are you longing for the good old days of your favorite childhood games? 
 Well, you're in luck!
 My platform offers an exciting opportunity for gamers and enthusiasts to contribute to the ever-evolving world of video gaming.
