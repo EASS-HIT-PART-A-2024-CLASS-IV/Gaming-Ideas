@@ -15,7 +15,10 @@ Running the Project:
 
 Ensure that Docker and Docker Compose are installed on your system.
 Navigate to the project directory in your terminal.
-Run the command: docker-compose up --build
+Run the command:
+
+docker-compose up
+
 This will build and start the containers defined in the docker-compose.yml file.
 Accessing the Application:
 
