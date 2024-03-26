@@ -1,14 +1,31 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from DB.DB import SessionLocal, Game 
+from DB.DB import SessionLocal, Game
+
 
 app = FastAPI()
 
-# Define a Pydantic model for the game data
 class GameCreate(BaseModel):
     name: str
 
-# API endpoint to add a new game
+SQLALCHEMY_DATABASE_URL = "postgresql://postgres:root@postgresdb/postgres"
+
+
+def get_connection():
+    db =SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+    print("postgres connected")
+
+
+
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to my API"}
+
+
 @app.post("/games/")
 def create_game(game_data: GameCreate):
     db = SessionLocal()
@@ -17,5 +34,8 @@ def create_game(game_data: GameCreate):
     db.commit()
     db.refresh(db_game)
     return db_game
+
+
+
 
 

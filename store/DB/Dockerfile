@@ -5,7 +5,7 @@ WORKDIR /shira
 COPY versions.txt .
 RUN pip install -r versions.txt
 
-# Build your Python application here if needed
+
 
 FROM postgres:latest
 
