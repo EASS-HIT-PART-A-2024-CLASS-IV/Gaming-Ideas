@@ -1,20 +1,30 @@
 🎮 Welcome to Shira's Project - Ideas to Games! 🕹️
-Are you longing for the good old days of your favorite childhood games? Well, you're in luck! My platform offers an exciting opportunity for gamers and enthusiasts to contribute to the ever-evolving world of video gaming.
+Are you longing for the good old days of your favorite childhood games? 
+Well, you're in luck!
+My platform offers an exciting opportunity for gamers and enthusiasts to contribute to the ever-evolving world of video gaming.
 
 The aim is simple: to create an interactive space where users can submit their imaginative ideas for video games.
 
 Getting Started 🚀
 To dive into the project, follow these simple steps:
 
-Clone the Repository: Grab a copy of the repository to your local machine.
+Clone the Repository: 
+Grab a copy of the repository to your local machine.
 Navigate to the Project Directory: Move to the project directory in your terminal.
+
 Usage 🎮
 To run the project:
 
-Ensure Docker and Docker Compose are Installed: Make sure you have Docker and Docker Compose installed on your system.
-Navigate to the Project Directory: Head over to the project directory in your terminal.
-Run the Command: Execute the command docker-compose up. This will build and start the containers defined in the docker-compose.yml file.
+Ensure Docker and Docker Compose are Installed:
+Make sure you have Docker and Docker Compose installed on your system.
+Navigate to the Project Directory: 
+Head over to the project directory in your terminal.
+Run the Command: 
+Execute the command docker-compose up. This will build and start the containers defined in the docker-compose.yml file.
+
+
 Accessing the Application 🌐
+
 Once the containers are up and running, you can access the application through your web browser:
 
 Visit the Provided Network URL: Go to the provided Network URL (e.g., http://192.168.160.4:8501) to view the Streamlit app.
