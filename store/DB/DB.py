@@ -21,7 +21,6 @@ class Game(Base):
     name = Column(String, index=True)
     platform = Column(Enum(PlatformEnum), index=True)
     main_actions = Column(Text)
-
 def create_db_tables():
     Base.metadata.create_all(bind=engine)
 
