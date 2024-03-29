@@ -8,7 +8,7 @@ The aim is simple: to create an interactive space where users can submit their i
 ## Getting Started 🚀
 To dive into the project, follow these simple steps:
 
-1 .Clone the Repository: 
+  1 .Clone the Repository: 
   Grab a copy of the repository to your local machine.
 
 
