@@ -18,10 +18,19 @@ To dive into the project, follow these simple steps:
 To run the project:
 
 1.Make sure you have Docker and Docker Compose installed on your system.
-2.Navigate to the Project Directory: 
+
+
+
+2.Navigate to the Project Directory
+
+
 3.Head over to the project directory in your terminal.
+
+
 4.Run the Command: 
   docker-compose up
+
+
 
 This will build and start the containers defined in the docker-compose.yml file.
 
