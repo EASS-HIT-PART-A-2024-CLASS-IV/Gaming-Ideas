@@ -44,8 +44,16 @@ Once the containers are up and running, you can access the application through y
 
 
 
-Visit the Provided Network URL: Go to the provided Network URL (e.g., http://localhost:8501) to view the Streamlit app.
+Visit the Provided Network URL:e.g., http://localhost:8501 to view the Streamlit app.
+
+
+
+
+
 Submitting Game Ideas 🎮💡
+
+
+
 In the Streamlit app, you'll discover intuitive input fields where you can submit your brilliant game ideas. Simply fill in the details such as the name of the game, platform, and main actions of the game.
 
 ## Testing Individual Containers 🛠️
