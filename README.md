@@ -1,6 +1,6 @@
 # 🎮 Welcome to Shira's Project - Ideas to Games! 🕹️
 Are you longing for the good old days of your favorite childhood games? 
-Well, you're in luck!
+Well, you're lucky!
 My platform offers an exciting opportunity for gamers and enthusiasts to contribute to the ever-evolving world of video gaming.
 
 The aim is simple: to create an interactive space where users can submit their imaginative ideas for video games.
