@@ -8,20 +8,19 @@ The aim is simple: to create an interactive space where users can submit their i
 ## Getting Started 🚀
 To dive into the project, follow these simple steps:
 
-Clone the Repository: 
-Grab a copy of the repository to your local machine.
-Navigate to the Project Directory: Move to the project directory in your terminal.
+1 .Clone the Repository: 
+  Grab a copy of the repository to your local machine.
+2. Navigate to the Project Directory: Move to the project directory in your terminal.
 
 ## Usage 🎮
 To run the project:
 
-Ensure Docker and Docker Compose are Installed:
-Make sure you have Docker and Docker Compose installed on your system.
-Navigate to the Project Directory: 
-Head over to the project directory in your terminal.
-Run the Command: 
-Execute the command :
-docker-compose up
+1.Make sure you have Docker and Docker Compose installed on your system.
+2.Navigate to the Project Directory: 
+3.Head over to the project directory in your terminal.
+4.Run the Command: 
+  docker-compose up
+
 This will build and start the containers defined in the docker-compose.yml file.
 
 
